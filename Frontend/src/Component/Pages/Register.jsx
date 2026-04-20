@@ -4,6 +4,9 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import "../CSS/Register.css"
 
+const url = import.meta.env.VITE_API_URL;
+
+
 const Register = () => {
   const [form, setForm] = useState({
     name: "",

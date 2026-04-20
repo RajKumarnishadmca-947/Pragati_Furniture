@@ -47,6 +47,7 @@ const adduser = async (req, res) => {
     })
 
     await newuser.save()
+    console.log(newuser)
 
     // ✅ Send mail safely
     try {
