@@ -1,0 +1,122 @@
+/* ROOT VARIABLES (Dynamic Theme) */
+:root {
+  --primary: #4f46e5;
+  --secondary: #6366f1;
+  --bg: #f1f5f9;
+  --card-bg: #ffffff;
+  --text: #0f172a;
+  --light-text: #64748b;
+  --border: #e2e8f0;
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #020617;
+    --card-bg: #0f172a;
+    --text: #f8fafc;
+    --light-text: #94a3b8;
+    --border: #1e293b;
+  }
+}
+
+/* MAIN CONTAINER */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* FORM CARD */
+.form-box {
+  padding: 30px 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.5s ease;
+}
+
+/* HEADING */
+.heading {
+  position: absolute;
+  top: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #c75c5c;
+  text-align: center;
+}
+
+
+
+/* INPUT FIELDS */
+.form-box input {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+  background: transparent;
+  color: var(--text);
+}
+
+/* PLACEHOLDER */
+.form-box input::placeholder {
+  color: var(--light-text);
+}
+
+/* FOCUS EFFECT */
+.form-box input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* ANIMATION */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .form-box {
+    padding: 25px 20px;
+  }
+
+  .heading {
+    font-size: 24px;
+    top: 30px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,111 @@
+/* 🔥 Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* 🔥 Card */
+.container > div,
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Box */
+.verify-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* Heading */
+.verify-box h2 {
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+/* Email text */
+.verify-box p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 15px;
+  word-break: break-all;
+}
+
+/* Input */
+.verify-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.verify-box input:focus {
+  border-color: #38bdf8;
+}
+
+/* Buttons */
+.verify-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Verify button */
+.verify-btn {
+  background: #38bdf8;
+  color: white;
+}
+
+.verify-btn:hover {
+  background: #0284c7;
+}
+
+/* Resend button */
+.resend-btn {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.resend-btn:hover {
+  background: #cbd5e1;
+}
+
+/* 🔥 Responsive */
+@media (max-width: 480px) {
+  .verify-box {
+    padding: 20px;
+  }
+
+  .verify-box h2 {
+    font-size: 20px;
+  }
+
+  .verify-box input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .verify-box button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

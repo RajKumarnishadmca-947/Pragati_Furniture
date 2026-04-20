@@ -1,0 +1,212 @@
+/* Container */
+.admin-orders {
+  padding: 20px;
+  background: #f8fafc;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.admin-orders h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Table */
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Head */
+.orders-table thead {
+  background: #1e293b;
+  color: white;
+}
+
+.orders-table th {
+  padding: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Table Body */
+.orders-table td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Row hover */
+.orders-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+/* Items inside table */
+.item-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  justify-content: flex-start;
+}
+
+.item-box img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.item-box span {
+  font-size: 13px;
+  color: #334155;
+}
+
+/* Status dropdown */
+.orders-table select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+  background: #f1f5f9;
+}
+
+.orders-table select:hover {
+  border-color: #2563eb;
+}
+
+/* Status colors (manual class use recommended) */
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status.Pending {
+  background: #facc15;
+  color: #000;
+}
+
+.status.Confirmed {
+  background: #38bdf8;
+  color: #fff;
+}
+
+.status.Shipped {
+  background: #a78bfa;
+  color: #fff;
+}
+
+.status.Delivered {
+  background: #22c55e;
+  color: #fff;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  border: none;
+  background: #1e293b;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+  background: #334155;
+}
+
+.pagination button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Empty text */
+.admin-orders p {
+  color: #64748b;
+  text-align: center;
+}
+
+/* ✅ Responsive (Mobile View) */
+@media (max-width: 768px) {
+  .orders-table thead {
+    display: none;
+  }
+  .admin-orders {
+    margin-left: 0;
+  }
+
+  .orders-table,
+  .orders-table tbody,
+  .orders-table tr,
+  .orders-table td {
+    display: block;
+    width: 90%;
+  }
+
+  .orders-table tr {
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .orders-table td {
+    text-align: left;
+    padding: 8px;
+    border: none;
+    position: relative;
+  }
+
+  .orders-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    color: #1e293b;
+    margin-bottom: 4px;
+  }
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filters input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 250px;
+}
+
+.filters select {
+  padding: 8px;
+  border-radius: 6px;
+}

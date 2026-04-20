@@ -1,0 +1,161 @@
+/* 🔹 Page Container */
+.message-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* 🔹 Heading */
+.message-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* 🔹 Search Box */
+.message-search {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.message-search:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+}
+
+/* 🔹 Table Wrapper */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* 🔹 Table */
+.message-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+  background: white;
+}
+
+/* 🔹 Header */
+.message-table thead {
+  background: linear-gradient(135deg, #1e293b, #334155);
+}
+
+.message-table th {
+  padding: 12px;
+  color: white;
+  text-align: left;
+  font-weight: 500;
+}
+
+/* 🔹 Rows */
+.message-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 🔹 Zebra */
+.message-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* 🔹 Hover */
+.message-table tr:hover {
+  background: #eef2ff;
+  transition: 0.2s;
+}
+
+/* 🔹 Delete Button */
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4);
+}
+
+/* 🔹 Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border: none;
+  background: #1e293b;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination button:hover {
+  background: #334155;
+}
+
+.pagination button:disabled {
+  background: #cbd5f5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-weight: 500;
+}
+
+/* 🔥 RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .message-page {
+    padding: 15px;
+  }
+
+  .message-page h1 {
+    font-size: 22px;
+  }
+
+  .message-search {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .message-page h1 {
+    font-size: 18px;
+  }
+
+  .message-table {
+    min-width: 600px;
+  }
+
+  .delete-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .pagination span {
+    font-size: 12px;
+  }
+}
