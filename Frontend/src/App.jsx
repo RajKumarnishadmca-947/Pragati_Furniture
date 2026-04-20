@@ -30,7 +30,7 @@ const App = () => {
   useEffect(()=>{
   const getUser=async()=>{
     try {
-      const res= await axios.get("`${url}/users/profile",{ withCredentials: true })
+      const res= await axios.get(`${url}/users/profile`,{ withCredentials: true })
       setUser(res.data.user)
     } catch (err) {
       setUser(null)
