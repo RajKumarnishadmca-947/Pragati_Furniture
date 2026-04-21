@@ -20,7 +20,7 @@ const products=require("../Models/productmodel")
         });
 
     } catch (error) {
-        console.log(error);
+        console.log("❌ CLOUDINARY ERROR:", error)
         res.status(500).json({ msg: "Error in adding product" });
     }
     };
