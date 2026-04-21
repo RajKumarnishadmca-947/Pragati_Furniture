@@ -1,28 +1,29 @@
 const products=require("../Models/productmodel")
 
 
-const addProduct = async (req, res) => {
+    const addProduct = async (req, res) => {
     try {
         if (!req.file) {
-            return res.status(400).json({ msg: "Image is required" })
+        return res.status(400).json({ msg: "Image is required" });
         }
-        
-        const newProduct = new products({
-            ...req.body,
-            pimage: req.file.filename
-        })
 
-        await newProduct.save()
+        const newProduct = new products({
+        ...req.body,
+        pimage: req.file.path   // ✅ CLOUDINARY URL
+        });
+
+        await newProduct.save();
 
         res.status(201).json({
-            msg: "Product added successfully",
-            product: newProduct
-        })
+        msg: "Product added successfully",
+        product: newProduct
+        });
 
     } catch (error) {
-        res.status(500).json({ msg: "Error in adding product" })
+        console.log(error);
+        res.status(500).json({ msg: "Error in adding product" });
     }
-}
+    };
 
 // ➤ Get All Products
 const getProducts = async (req, res) => {
@@ -63,7 +64,7 @@ const updateProduct = async (req, res) => {
 
         // ✅ if new image uploaded
         if (req.file) {
-            updateData.pimage = req.file.filename
+            updateData.pimage = req.file.path;
         }
 
         const updated = await products.findByIdAndUpdate(

@@ -25,8 +25,6 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-// ✅ Serve images
-app.use("/productsImages", express.static("productsImages"))
 
 // DB Connection
 mongoose.connect(process.env.DATABASE_URL)

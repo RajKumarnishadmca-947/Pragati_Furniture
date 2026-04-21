@@ -34,7 +34,7 @@ const SeeProducts = () => {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [url])
 
   useEffect(() => {
     fetchProducts()
@@ -141,7 +141,12 @@ const SeeProducts = () => {
           {filteredProducts.map((item) => (
             <div key={item._id} className="km-card">
               <img
-                src={`${url}/productsImages/${item.pimage}`}
+                loading="lazy"
+                src={
+                  item.pimage?.startsWith("http")
+                    ? item.pimage
+                    : `${url}/productsImages/${item.pimage}`
+                }
                 alt={item.ptitle}
                 className="product-img"
               />

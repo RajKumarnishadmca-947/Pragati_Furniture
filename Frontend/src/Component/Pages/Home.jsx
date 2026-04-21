@@ -101,7 +101,14 @@ const removeFromPopular = async (id) => {
         <div className="product-grid">
           {popular.map((item) => (
             <div key={item._id} className="card">
-              <img src={`${url}/productsImages/${item.pimage}`} alt={item.ptitle}/>
+             <img
+                  src={
+                    item.pimage?.startsWith("http")
+                      ? item.pimage
+                      : `${url}/productsImages/${item.pimage}`
+                  }
+                  alt={item.ptitle}
+                />
               <h4>{item.ptitle}</h4>
               <p>₹{item.pprice}</p>
 

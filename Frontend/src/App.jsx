@@ -24,6 +24,8 @@ import Message from './Component/Admin/Message'
 import AdminLayout from './Component/Admin/AdminLayout'
 import AdminRoute from './Component/Admin/AdminRoute'
 
+const url = import.meta.env.VITE_API_URL;
+
 const App = () => {
   const {setUser}=useContext(AuthContext)
 
@@ -43,7 +45,7 @@ const App = () => {
   } else {
     setUser(null)
   }
-},[])
+},[setUser, url])
 
   return (
     <BrowserRouter>

@@ -115,7 +115,11 @@ const AdminOrders = () => {
                     {order.items.map((item, i) => (
                       <div key={i} className="item-box">
                         <img
-                          src={`${url}/productsImages/${item.img}`}
+                          src={
+                              item.img?.startsWith("http")
+                                ? item.img
+                                : `${url}/productsImages/${item.img}`
+                            }
                           alt={item.title}
                         />
                         <span>{item.title} (x{item.qty})</span>

@@ -140,7 +140,11 @@ const AddToCart = () => {
             {cart.map((item) => (
               <div key={item._id} className="km-card">
                 <img
-                  src={`${url}/productsImages/${item.img}`}
+                  src={
+                      item.img?.startsWith("http")
+                        ? item.img
+                        : `${url}/productsImages/${item.img}`
+                    }
                   alt={item.title}
                   className="product-img"
                 />

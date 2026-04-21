@@ -133,9 +133,14 @@ const goToProduct = (pid) => {
           <div key={i} className="uo-item">
 
             <img
-              src={`${url}/productsImages/${item.img}`}
-              alt={item.title}
-            />
+                loading="lazy"
+                src={
+                    item.img?.startsWith("http")
+                      ? item.img
+                      : `${url}/productsImages/${item.img}`
+                  }
+                alt={item.title}
+              />
 
             <div className="uo-item-info">
               <p className="uo-item-title">{item.title}</p>
