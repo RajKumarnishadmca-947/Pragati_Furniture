@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, HashRouter } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from './Component/Pages/AuthContext'
 
@@ -48,7 +48,7 @@ const App = () => {
 },[setUser, url])
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path='/register' element={<Register />} />
@@ -73,7 +73,7 @@ const App = () => {
         </Route>
         
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
