@@ -51,7 +51,7 @@ const Home = () => {
       setCurrentIndex((prev) =>
         prev < popular.length - 3 ? prev + 1 : 0
       );
-    }, 2500);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [popular]);

@@ -76,13 +76,11 @@ const Navbar = () => {
     {/* ICON */}
     <div className="logo-icon">
   <svg viewBox="0 0 64 64">
-    
     {/* Chair Icon */}
     <rect x="14" y="28" width="36" height="10" rx="2"/>
     <rect x="18" y="12" width="28" height="18" rx="3"/>
     <rect x="16" y="38" width="6" height="14"/>
     <rect x="42" y="38" width="6" height="14"/>
-    
     </svg>
   </div>
 

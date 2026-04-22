@@ -120,7 +120,7 @@ const SeeProducts = () => {
 
   return (
     <div className="km">
-      <h1 className="heading">All Products</h1>
+  
 
       {/* ✅ SEARCH BAR */}
       <div className="search-bar">
