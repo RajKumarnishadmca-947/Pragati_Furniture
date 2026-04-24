@@ -98,7 +98,7 @@ const ProductDetails=()=> {
 
   // Add to card button
   const addToCart = async () => {
-  if (!user || !user._id) {
+  if (!user?.id) {
     navigate("/login")
     return
   }
@@ -108,7 +108,7 @@ const ProductDetails=()=> {
 
     const res = await axios.post(`${url}/api/addcart`, {
       pid: product._id,
-      uid: user._id,
+      uid: user.id, // ✅ FIXED (same as SeeProducts)
       title: product.ptitle,
       price: Number(product.pprice),
       img: product.pimage

@@ -59,30 +59,29 @@ const SeeProducts = () => {
 
   // ✅ Add to cart
   const handleAddToCart = async (product) => {
-  if (!user?.id) {
-    navigate("/login")
-    return
-  }
+    if (!user?.id) {
+      navigate("/login")
+      return
+    }
 
-  setLoadingCart(product._id)
+    setLoadingCart(product._id)
 
-  try {
-    const { data } = await axios.post(`${url}/api/addcart`,{
-        pid: product._id,
-        uid: user.id, // ✅ FIXED
-        title: product.ptitle,
-        price: Number(product.pprice),
-        img: product.pimage
-      }
-    )
+    try {
+      const { data } = await axios.post(`${url}/api/addcart`,{
+          pid: product._id,
+          uid: user.id, // ✅ FIXED
+          title: product.ptitle,
+          price: Number(product.pprice),
+          img: product.pimage
+        }
+      )
+      toast.success(data?.msg || "Added to cart")
 
-    toast.success(data?.msg || "Added to cart")
-     
-  } catch (err) {
-    toast.error("Failed to add to cart")
-  } finally {
-    setLoadingCart(null)
-  }
+    } catch (err) {
+      toast.error("Failed to add to cart")
+    } finally {
+      setLoadingCart(null)
+    }
 }
 
   // ✅ Add to popular
