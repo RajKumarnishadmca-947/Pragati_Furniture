@@ -1,9 +1,26 @@
 const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
-  userId: { type: String, required: true },
-  userName: { type: String, required: true },
-  userPhone: { type: String, required: true },
+
+  userId: {
+    type: String,
+    required: true
+  },
+
+  userName: {
+    type: String,
+    required: true
+  },
+
+  userEmail: {
+    type: String,
+    required: true
+  },
+
+  userPhone: {
+    type: String,
+    required: true
+  },
 
   items: [
     {
@@ -17,13 +34,18 @@ const orderSchema = new mongoose.Schema({
 
   totalAmount: Number,
 
-  //Single correct status field
   status: {
     type: String,
-    enum: ["Pending", "Confirmed", "Shipped", "Delivered", "Cancelled"],
+    enum: [
+      "Pending",
+      "Confirmed",
+      "Shipped",
+      "Delivered",
+      "Cancelled"
+    ],
     default: "Pending"
   }
 
-}, { timestamps: true }) 
+}, { timestamps: true })
 
 module.exports = mongoose.model("Orders", orderSchema)

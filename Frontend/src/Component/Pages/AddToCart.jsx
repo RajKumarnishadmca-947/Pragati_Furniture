@@ -97,7 +97,7 @@ const AddToCart = () => {
         userId: user.id
       })
 
-      toast.success("Order placed successfully 🎉")
+      toast.success("Order placed successfully 📦 Confirmation mail sent")
 
       // ✅ Instant UI update
       setCart([])
