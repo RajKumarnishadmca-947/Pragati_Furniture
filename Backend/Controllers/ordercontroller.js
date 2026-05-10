@@ -55,7 +55,7 @@ exports.placeOrder = async (req, res) => {
       })
     }
 
-    // ✅ Total
+    // ✅ Calculate total
     const total = cartItems.reduce(
       (acc, item) => acc + item.price * item.qty,
       0
@@ -70,7 +70,7 @@ exports.placeOrder = async (req, res) => {
       img: item.img
     }))
 
-    // ✅ Save order
+    // ✅ Create order
     const newOrder = new Order({
 
       userId: userId.toString(),
@@ -86,60 +86,59 @@ exports.placeOrder = async (req, res) => {
       totalAmount: total
     })
 
+    // ✅ Save order
     await newOrder.save()
 
     console.log("ORDER SAVED ✅")
 
-    // ✅ Send Mail
-    try {
-
-      await transporter.sendMail({
-
-        from: process.env.EMAIL_USER,
-
-        to: user.email,
-
-        subject: "Order Confirmation - SP Furniture",
-
-        html: `
-          <h2>Hello ${user.name}</h2>
-
-          <p>
-            We have received your order successfully 🛒
-          </p>
-
-          <p>
-            Total Amount: <b>₹ ${total}</b>
-          </p>
-
-          <p>
-            We will contact you very soon.
-          </p>
-
-          <h3>Thank You ❤️</h3>
-
-          <p>
-            SP Furniture Team
-          </p>
-        `
-      })
-
-      console.log("MAIL SENT ✅")
-
-    } catch (mailErr) {
-
-      console.log("MAIL ERROR:", mailErr)
-
-    }
-
-    // ✅ Clear cart
+    // ✅ Clear cart FIRST
     await Cart.deleteMany({
       uid: userId.toString()
     })
 
-    // ✅ Success response
+    console.log("CART CLEARED ✅")
+
+    // ✅ Send response immediately
     res.status(200).json({
       msg: "Order placed successfully"
+    })
+
+    // ✅ Send email in background
+    transporter.sendMail({
+
+      from: process.env.EMAIL_USER,
+
+      to: user.email,
+
+      subject: "Order Confirmation - SP Furniture",
+
+      html: `
+        <h2>Hello ${user.name}</h2>
+
+        <p>
+          We have received your order successfully 🛒
+        </p>
+
+        <p>
+          Total Amount: <b>₹ ${total}</b>
+        </p>
+
+        <p>
+          We will contact you very soon.
+        </p>
+
+        <h3>Thank You ❤️</h3>
+
+        <p>
+          SP Furniture Team
+        </p>
+      `
+    })
+    .then(() => {
+      console.log("MAIL SENT ✅")
+    })
+    .catch((mailErr) => {
+      console.log("MAIL ERROR ❌:", mailErr)
     })
 
   } catch (err) {
