@@ -104,42 +104,44 @@ exports.placeOrder = async (req, res) => {
     })
 
     // ✅ Send email in background
-    transporter.sendMail({
+try {
 
-      from: process.env.EMAIL_USER,
+  const info = await transporter.sendMail({
 
-      to: user.email,
+    from: process.env.EMAIL_USER,
 
-      subject: "Order Confirmation - SP Furniture",
+    to: user.email,
 
-      html: `
-        <h2>Hello ${user.name}</h2>
+    subject: "Order Confirmation - SP Furniture",
 
-        <p>
-          We have received your order successfully 🛒
-        </p>
+    html: `
+      <h2>Hello ${user.name}</h2>
 
-        <p>
-          Total Amount: <b>₹ ${total}</b>
-        </p>
+      <p>Your order has been placed successfully 🛒</p>
 
-        <p>
-          We will contact you very soon.
-        </p>
+      <p><b>Total Amount:</b> ₹ ${total}</p>
 
-        <h3>Thank You ❤️</h3>
+      <p>Thank you for shopping with us ❤️</p>
+    `
+  })
 
-        <p>
-          SP Furniture Team
-        </p>
-      `
-    })
-    .then(() => {
-      console.log("MAIL SENT ✅")
-    })
-    .catch((mailErr) => {
-      console.log("MAIL ERROR ❌:", mailErr)
-    })
+  console.log("MAIL SENT ✅")
+  console.log(info)
+
+  res.status(200).json({
+    msg: "Order placed successfully"
+  })
+
+} catch (mailErr) {
+
+  console.log("MAIL FAILED ❌")
+
+  console.log(mailErr)
+
+  res.status(500).json({
+    msg: "Mail not sent"
+  })
+}
 
   } catch (err) {
 
